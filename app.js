@@ -2,8 +2,13 @@ const express = require("express");
 
 const moment = require("moment");
 const fs = require("fs/promises");
+const cors = require("cors");
+
+const books = require("./books");
 
 const app = express(); // web-server
+
+const corsMiddleware = cors();
 //
 // app.get("/", (request, response) => {
 //   response.send("<h2>Home page</h2>");
@@ -15,7 +20,7 @@ const app = express(); // web-server
 // });
 //
 
-const books = require("./books");
+app.use(corsMiddleware);
 
 app.use(async (req, res, next) => {
   const { method, url } = req;
@@ -36,6 +41,11 @@ app.get("/books", (req, res) => {
 });
 app.get("/products", (req, res) => {
   res.json([]);
+});
+app.use((req, res) => {
+  res.status(404).json({
+    message: "Not found",
+  });
 });
 
 app.listen(3000, () => console.log("Server is running")); // starting server
