@@ -16,3 +16,14 @@
  GET /books 22-02-2026_11:44:05
  GET /books 22-02-2026_11:49:41
  GET / 22-02-2026_11:50:09
+ GET /books 23-02-2026_12:09:24
+ GET /api/books 23-02-2026_12:09:38
+ GET /api/books 23-02-2026_12:10:12
+ GET /api/books 23-02-2026_12:20:33
+ POST /api/books 23-02-2026_12:20:45
+ GET /api/books 23-02-2026_12:20:57
+ DELETE /api/books 23-02-2026_12:28:03
+ DELETE /api/books/1 23-02-2026_12:28:20
+ DELETE /api/books/1 23-02-2026_12:28:22
+ DELETE /api/books/1 23-02-2026_12:28:23
+ GET /api/books 23-02-2026_12:28:30

@@ -4,7 +4,7 @@ const moment = require("moment");
 const fs = require("fs/promises");
 const cors = require("cors");
 
-const books = require("./books");
+const booksRouter = require("./routes/api/books");
 
 const app = express(); // web-server
 
@@ -19,6 +19,10 @@ const corsMiddleware = cors();
 //   response.send("<h2>Contacts page</h2>");
 // });
 //
+
+// app.get("/products", (req, res) => {
+//   res.json([]);
+// });
 
 app.use(corsMiddleware);
 
@@ -35,13 +39,9 @@ app.use((req, res, next) => {
   next();
 });
 */
-app.get("/books", (req, res) => {
-  res.json(books);
-  //   res.send(books); //cant get correctly if argument is null
-});
-app.get("/products", (req, res) => {
-  res.json([]);
-});
+
+app.use("/api/books", booksRouter);
+
 app.use((req, res) => {
   res.status(404).json({
     message: "Not found",
