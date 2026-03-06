@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "start": "nodemon --delay 200ms --env-file=.env index.js",
+    "dev": "nodemon --delay 200ms --env-file=.env server2.js"
   },
   "keywords": [],
   "author": "al-burl <al-burl@mail.com>",

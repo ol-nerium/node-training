@@ -1,8 +1,11 @@
-import getPosts from "./postController.js";
-import { getPostsLength } from "./postController.js";
+// import getPosts from "./postController.js";
+// import { getPostsLength } from "./postController.js";
+import createServer from "./server.js";
 
-console.log(getPosts());
-console.log(getPostsLength());
+createServer();
+
+// console.log(getPosts());
+// console.log(getPostsLength());
 
 // const { generateRandomNumber, celciusToFarenheit } = require("./utils");
 
