@@ -14,40 +14,36 @@ const __dirname = path.dirname(__filename);
 console.log(import.meta);
 console.log(import.meta.url);
 
-const createServer = () => {
-  const server = http.createServer(async (req, res) => {
-    try {
-      // check if GET request
-      let filePath;
+const server = http.createServer(async (req, res) => {
+  try {
+    // check if GET request
+    let filePath;
 
-      if (req.method === "GET") {
-        if (req.url === "/") {
-          filePath = path.join(__dirname, "public", "index.html");
-        } else if (req.url === "/about") {
-          filePath = path.join(__dirname, "public", "about.html");
-        } else {
-          throw new Error("Not Found");
-        }
-
-        const data = await fs.readFile(filePath);
-        res.setHeader("Content-Type", "text/html");
-        res.write(data);
-        res.end();
+    if (req.method === "GET") {
+      if (req.url === "/") {
+        filePath = path.join(__dirname, "public", "index.html");
+      } else if (req.url === "/about") {
+        filePath = path.join(__dirname, "public", "about.html");
       } else {
-        throw new Error("Method not allowed");
+        throw new Error("Not Found");
       }
-    } catch (error) {
-      console.log(error);
-      res.writeHead(500, {
-        "Content-Type": "text/html",
-      });
-      res.end("<h1>Server error</h1>");
+
+      const data = await fs.readFile(filePath);
+      res.setHeader("Content-Type", "text/html");
+      res.write(data);
+      res.end();
+    } else {
+      throw new Error("Method not allowed");
     }
-  });
+  } catch (error) {
+    console.log(error);
+    res.writeHead(500, {
+      "Content-Type": "text/html",
+    });
+    res.end("<h1>Server error</h1>");
+  }
+});
 
-  server.listen(PORT, () => {
-    console.log("server running on port ", PORT);
-  });
-};
-
-export default createServer;
+server.listen(PORT, () => {
+  console.log("server running on port ", PORT);
+});
