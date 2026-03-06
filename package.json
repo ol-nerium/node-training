@@ -11,7 +11,8 @@
     "fileDemo": "nodemon fsDemo.js",
     "pathDemo": "nodemon pathDemo.js",
     "osDemo": "nodemon osDemo.js",
-    "urlDemo": "nodemon urlDemo.js"
+    "urlDemo": "nodemon urlDemo.js",
+    "cryptoDemo": "nodemon cryptoDemo.js"
   },
   "keywords": [],
   "author": "al-burl <al-burl@mail.com>",
