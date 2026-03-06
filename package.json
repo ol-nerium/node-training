@@ -9,7 +9,8 @@
     "fileRouting": "nodemon --delay 200ms --env-file=.env server.js",
     "getPostRouting": "nodemon --delay 200ms --env-file=.env server2.js",
     "fileDemo": "nodemon fsDemo.js",
-    "pathDemo": "nodemon pathDemo.js"
+    "pathDemo": "nodemon pathDemo.js",
+    "osDemo": "nodemon osDemo.js"
   },
   "keywords": [],
   "author": "al-burl <al-burl@mail.com>",
