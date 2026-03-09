@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
-
-const { handleMongooseError } = require("../middlewares");
+const { handleMongooseError } = require("../helpers");
 
 const genreList = ["fantastic", "love"];
 const dateRegexp = /^\d{2}-\d{2}-\d{4}$/;
@@ -29,6 +28,11 @@ const bookSchema = new Schema(
       type: String,
       // 16-10-2009
       match: dateRegexp,
+      required: true,
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
       required: true,
     },
   },
